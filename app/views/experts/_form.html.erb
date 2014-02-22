@@ -1,0 +1,33 @@
+<%= form_for(@expert) do |f| %>
+  <% if @expert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expert.errors.count, "error") %> prohibited this expert from being saved:</h2>
+
+      <ul>
+      <% @expert.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.number_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :question_answered %><br>
+    <%= f.number_field :question_answered %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @expert.username %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @expert.level %>
+</p>
+
+<p>
+  <strong>Question answered:</strong>
+  <%= @expert.question_answered %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @expert.email %>
+</p>
+
+<%= link_to 'Edit', edit_expert_path(@expert) %> |
+<%= link_to 'Back', experts_path %>
