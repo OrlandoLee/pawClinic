@@ -18,11 +18,19 @@ describe "Static pages" do
      end
    end
    
-   describe "Helo page" do
+   describe "Help page" do
 
       it "should have the content 'Help'" do
         visit '/static_pages/help'
         expect(page).to have_content('Help')
       end
     end
+    
+    describe "Contact page" do
+
+        it "should have the content 'Contact'" do
+          visit '/static_pages/contact'
+          expect(page).to have_content('Contact')
+        end
+      end
 end
