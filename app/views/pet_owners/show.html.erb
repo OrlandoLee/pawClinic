@@ -17,3 +17,4 @@
 
 <%= link_to 'Edit', edit_pet_owner_path(@pet_owner) %> |
 <%= link_to 'Back', pet_owners_path %>
+<%= link_to 'ask questions', new_question_path(:pet_owner_id => @pet_owner, :category => @pet_owner.pet)%>
