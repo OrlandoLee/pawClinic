@@ -4,12 +4,14 @@ class AnswersController < ApplicationController
   # GET /answers
   # GET /answers.json
   def index
-    @answers = Answer.all
+    #@answers = Answer.all
+    @answers = Answer.find_all_by_question_id(params[:question_id])
   end
 
   # GET /answers/1
   # GET /answers/1.json
   def show
+    
   end
 
   # GET /answers/new
