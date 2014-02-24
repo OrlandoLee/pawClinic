@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222183359) do
+ActiveRecord::Schema.define(version: 20140224000458) do
 
   create_table "answers", force: true do |t|
     t.integer  "expert_id"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20140222183359) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
+
+  add_index "experts", ["email"], name: "index_experts_on_email", unique: true
 
   create_table "pet_owners", force: true do |t|
     t.string   "username"
@@ -36,7 +39,10 @@ ActiveRecord::Schema.define(version: 20140222183359) do
     t.string   "pet"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
+
+  add_index "pet_owners", ["email"], name: "index_pet_owners_on_email", unique: true
 
   create_table "questions", force: true do |t|
     t.integer  "pet_owner_id"
