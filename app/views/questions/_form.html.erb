@@ -12,8 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :pet_owner_id %><br>
-    <%= f.number_field :pet_owner_id, :value => params[:pet_owner_id]%>
+    <%= f.hidden_field :pet_owner_id, :value => params[:pet_owner_id]%>
   </div>
   <div class="field">
     <%= f.label :content %><br>

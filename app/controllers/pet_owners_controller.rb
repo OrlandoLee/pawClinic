@@ -10,6 +10,7 @@ class PetOwnersController < ApplicationController
   # GET /pet_owners/1
   # GET /pet_owners/1.json
   def show
+    @pet_owner = PetOwner.find(params[:id])
   end
 
   # GET /pet_owners/new
@@ -69,6 +70,6 @@ class PetOwnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_owner_params
-      params.require(:pet_owner).permit(:username, :email, :pet)
+      params.require(:pet_owner).permit(:username, :email, :pet,:password,:password_confirmation)
     end
 end

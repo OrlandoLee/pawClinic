@@ -1,3 +1,12 @@
-<h1>PawClinic</h1>
-<h2><%= link_to "Expert", :experts %></h2>
-<h2><%= link_to "Pet Owner", :pet_owners %></h2>
+<div class="center hero-unit">
+  <h1>Welcome to PawClinic</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="http://pawclinic.com">PawClinic</a>
+  </h2>
+
+  <%= link_to "Expert Sign up now!", new_expert_path, class: "btn btn-large btn-primary" %>
+  <%= link_to "Pet Owner Sign up now!", new_pet_owner_path, class: "btn btn-large btn-primary" %>
+</div>
+

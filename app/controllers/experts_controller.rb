@@ -10,6 +10,7 @@ class ExpertsController < ApplicationController
   # GET /experts/1
   # GET /experts/1.json
   def show
+    @expert = Expert.find(params[:id])
   end
 
   # GET /experts/new
@@ -24,11 +25,14 @@ class ExpertsController < ApplicationController
   # POST /experts
   # POST /experts.json
   def create
-    @expert = Expert.new(expert_params)
+    new_expert_params = expert_params
+    new_expert_params[:level] = 0
+    new_expert_params[:question_answered]=0
+    @expert = Expert.new(new_expert_params)
 
     respond_to do |format|
       if @expert.save
-        format.html { redirect_to @expert, notice: 'Expert was successfully created.' }
+        format.html { redirect_to @expert, notice: 'Welcome to PawClinic' }
         format.json { render action: 'show', status: :created, location: @expert }
       else
         format.html { render action: 'new' }
@@ -69,6 +73,6 @@ class ExpertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expert_params
-      params.require(:expert).permit(:username, :level, :question_answered, :email)
+      params.require(:expert).permit(:username,:email,:password,:password_confirmation)
     end
 end

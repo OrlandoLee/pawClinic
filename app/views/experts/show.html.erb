@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Welcome to PawClinic Expert</h1>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @expert %>
+        <%= @expert.username %>
+      </h1>
+    </section>
+  </aside>
+</div>
 <p>
   <strong>Username:</strong>
   <%= @expert.username %>

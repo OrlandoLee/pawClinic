@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @pet_owner.username %>
-</p>
+<h1>Welcome to PawClinic</h1>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @pet_owner %>
+        <%= @pet_owner.username %>
+      </h1>
+    </section>
+  </aside>
+</div>
 
 <p>
   <strong>Email:</strong>

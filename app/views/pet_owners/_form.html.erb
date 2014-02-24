@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="span6 offset3">
 <%= form_for(@pet_owner) do |f| %>
   <% if @pet_owner.errors.any? %>
     <div id="error_explanation">
@@ -23,7 +25,17 @@
     <%= f.label :pet %><br>
     <%= f.text_field :pet %>
   </div>
+ <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+<div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+  </div>
+</div>
