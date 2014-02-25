@@ -5,6 +5,20 @@
   <th><%= link_to 'Sign in', @pet_owners.first%></th>
 </tr>
 </thead>
+
+
+
+
+<ul class="user">
+  <% @pet_owners.each do |pet_owner| %>
+    <li>
+      <%= link_to pet_owner.username, pet_owner %>
+    </li>
+  <% end %>
+</ul>
+
+
+
 <!--
 <table>
   <thead>

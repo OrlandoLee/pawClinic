@@ -5,6 +5,14 @@
       <th><%= link_to 'Sign in', @experts.first%></th>
     </tr>
   </thead>
+
+<ul class="user">
+  <% @experts.each do |experts| %>
+    <li>
+      <%= link_to experts.username, experts %>
+    </li>
+  <% end %>
+</ul>
  	
 <!--<table>
   <thead>

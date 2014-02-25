@@ -1,4 +1,5 @@
 PawClinic::Application.routes.draw do
+  resources :sessions, only: [:new, :create, :destroy]
   get "static_pages/contact"
   get "static_pages/home"
   get "static_pages/help"

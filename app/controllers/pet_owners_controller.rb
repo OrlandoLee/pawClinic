@@ -1,6 +1,5 @@
 class PetOwnersController < ApplicationController
   before_action :set_pet_owner, only: [:show, :edit, :update, :destroy]
-
   # GET /pet_owners
   # GET /pet_owners.json
   def index
@@ -26,7 +25,13 @@ class PetOwnersController < ApplicationController
   # POST /pet_owners.json
   def create
     @pet_owner = PetOwner.new(pet_owner_params)
-
+    if @pet_owner.save
+          sign_in_pet_owner @pet_owner
+          flash[:success] = "Welcome to the PawClinic!"
+          redirect_to @pet_owner
+        else
+          render 'new'
+        end
     respond_to do |format|
       if @pet_owner.save
         format.html { redirect_to @pet_owner, notice: 'Pet owner was successfully created.' }

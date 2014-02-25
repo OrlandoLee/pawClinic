@@ -6,8 +6,42 @@
         <ul class="nav pull-right">
           <li><%= link_to "Home",    static_pages_home_path %></li>
           <li><%= link_to "Help",    static_pages_help_path %></li>
-          <li><%= link_to "Sign in", '#' %></li>
 		  <li><%= link_to "Blog", 'http://blog.pawclinic.com' %></li>
+		
+		 		<% if signed_in_expert? %>
+		            <li><%= link_to "Users", '#' %></li>
+		            <li id="fat-menu" class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		                Account <b class="caret"></b>
+		              </a>
+		              <ul class="dropdown-menu">
+		                <li><%= link_to "Profile", current_expert %></li>
+		                <li><%= link_to "Settings", '#' %></li>
+		                <li class="divider"></li>
+		                <li>
+		                  <%= link_to "Sign out", session_path, method: "delete" %>
+		                </li>
+		              </ul>
+		            </li>
+			     <%elsif signed_in_pet_owner? %>%>
+			        <li><%= link_to "Users", '#' %></li>
+		            <li id="fat-menu" class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		                Account <b class="caret"></b>
+		              </a>
+		              <ul class="dropdown-menu">
+		                <li><%= link_to "Profile", current_pet_owner %></li>
+		                <li><%= link_to "Settings", '#' %></li>
+		                <li class="divider"></li>
+		                <li>
+		                  <%= link_to "Sign out", session_path, method: "delete" %>
+		                </li>
+		              </ul>
+		            </li>
+		
+		          <% else %>
+		            <li><%= link_to "Sign in", new_session_path %></li>
+		          <% end %>
         </ul>
       </nav>
     </div>
