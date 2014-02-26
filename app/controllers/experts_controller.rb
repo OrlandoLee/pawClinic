@@ -29,16 +29,9 @@ class ExpertsController < ApplicationController
     new_expert_params[:level] = 0
     new_expert_params[:question_answered]=0
     @expert = Expert.new(new_expert_params)
-    
-    if @expert.save
-          sign_in_expert @expert
-          flash[:success] = "Welcome to the PawClinic!"
-          redirect_to @expert
-        else
-          render 'new'
-        end
     respond_to do |format|
       if @expert.save
+        sign_in_expert @expert
         format.html { redirect_to @expert, notice: 'Welcome to PawClinic' }
         format.json { render action: 'show', status: :created, location: @expert }
       else
